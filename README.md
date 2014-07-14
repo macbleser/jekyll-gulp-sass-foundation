@@ -2,7 +2,7 @@
 
 A starting point for a Jekyll site that uses the Foundation Sass framework and includes modern front-end tools like gulp.js and BrowserSync that streamline your workflow
 
-Thanks to [@shakyShane](https://github.com/shakyShane) for the amazing BrowserSync plugin and the Jekyll example he provided [here](https://github.com/shakyShane/jekyll-gulp-sass-browser-sync)
+Thanks to [@shakyShane](https://github.com/shakyShane) for the amazing BrowserSync package and the Jekyll example he provided [here](https://github.com/shakyShane/jekyll-gulp-sass-browser-sync)
 
 ## System Preparation
 
