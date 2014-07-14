@@ -138,7 +138,7 @@ gulp.task('sass', function() {
  */
 gulp.task('watch', function() {
     gulp.watch(config.allScss, ['sass']);
-    gulp.watch(['index.html', '_data/*', '_includes/**/*', '_layouts/*', '_posts/*', '**/_posts/*', config.allJs], ['jekyll-rebuild']);
+    gulp.watch(['index.html', '**/index.html', '_data/*', '_includes/**/*', '_layouts/*', '_posts/*', '**/_posts/*', config.allJs], ['jekyll-rebuild']);
 });
 
 // --------------------------------------------------
