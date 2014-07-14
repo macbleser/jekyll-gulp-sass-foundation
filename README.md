@@ -20,9 +20,5 @@ To use this starter project, you'll need the following things installed on your 
 ## Usage
 
 1. Compile Sass – `gulp sass`
-2. Build Jekyll Site – `jekyll build`
-3. Enter development mode – `gulp`
-
-Since this is just a Jekyll project, you can use any of the commands listed in their [docs](http://jekyllrb.com/docs/usage/)
-
-Development mode will give you file watching, browser synchronisation, auto-rebuild, CSS injecting etc.
+2. Build Jekyll Site – `jekyll build` – Since this is just a Jekyll project, you can use any of the commands listed in their [docs](http://jekyllrb.com/docs/usage/)
+3. Enter development mode – `gulp` – Development mode will give you file watching, browser synchronisation, auto-rebuild, CSS injecting etc.
