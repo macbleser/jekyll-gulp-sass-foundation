@@ -1,0 +1,85 @@
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+//
+// @mixins
+//
+// Grid Columns
+//
+// A mixin to help make Foundation's grid-column mixin easier 
+// to use when specifying multiple media quries/screen sizes
+//
+// More info here:
+// http://foundation.zurb.com/forum/posts/1026-include-multiple-column-mixins
+//
+@mixin grid-columns(
+        $small-up-screens: false,
+       $medium-up-screens: false,
+        $large-up-screens: false,
+       $xlarge-up-screens: false,
+      $xxlarge-up-screens: false,
+      $small-only-screens: false,
+     $medium-only-screens: false,
+      $large-only-screens: false,
+     $xlarge-only-screens: false,
+    $xxlarge-only-screens: false ){
+  // Small and up screens  
+  @if $small-up-screens {
+    @include grid-column($small-up-screens);
+  }
+  // Medium and up screens
+  @if $medium-up-screens {
+    @media #{$medium-up} {
+      @include grid-column($medium-up-screens);
+    }
+  }
+  // Large and up screens
+  @if $large-up-screens {
+    @media #{$large-up} {
+      @include grid-column($large-up-screens);
+    }
+  }
+  // XLarge and up screens
+  @if $xlarge-up-screens {
+    @media #{$xlarge-up} {
+      @include grid-column($xlarge-up-screens);
+    }
+  }
+  // XXLarge and up screens
+  @if $xxlarge-up-screens {
+    @media #{$xxlarge-up} {
+      @include grid-column($xxlarge-up-screens);
+    }
+  }
+  // Small only screens  
+  @if $small-only-screens {
+    @media #{$small-only} {
+      @include grid-column($small-only-screens);
+    }
+  }
+  // Medium only screens
+  @if $medium-only-screens {
+    @media #{$medium-only} {
+      @include grid-column($medium-only-screens);
+    }
+  }
+  // Large only screens
+  @if $large-only-screens {
+    @media #{$large-only} {
+      @include grid-column($large-only-screens);
+    }
+  }
+  // XLarge only screens
+  @if $xlarge-only-screens {
+    @media #{$xlarge-only} {
+      @include grid-column($xlarge-only-screens);
+    }
+  }
+  // XXLarge only screens
+  @if $xxlarge-only-screens {
+    @media #{$xxlarge-only} {
+      @include grid-column($xxlarge-only-screens);
+    }
+  }
+}

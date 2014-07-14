@@ -1,0 +1,72 @@
+// --------------------------------------------------
+// APP
+// --------------------------------------------------
+// This is our main SCSS file that imports everything
+// that gets compiled into app.css
+
+// Import order:
+// 1.  Encoding
+// 2.  Variables
+// 3.  Foundation
+// 4.  Helpers
+// 5.  Base
+// 6.  Components
+// 7.  Layout
+// 8.  Vendor
+
+//
+// Encoding
+// --------------------------------------------------
+@charset "UTF-8";
+
+//
+// Variables
+// --------------------------------------------------
+// Import our global variables first so we can use
+// them in Foundations's variables file
+
+// Global Config Variables
+@import "variables/config";
+
+//
+// Foundation
+// --------------------------------------------------
+// Source: http://foundation.zurb.com/docs/
+// Notes:
+// 1. Foundation's component styles are set
+//    in vendor/foundation/_settings.
+// 2. Modify the _settings.scss file before overriding 
+//    the component styles on your own.
+
+// Import all of Foundation
+@import "vendor/foundation";
+
+//
+// Helpers
+// --------------------------------------------------
+
+// Functions
+@import "helpers/functions";
+
+// Placeholders
+@import "helpers/placeholders";
+
+// Mixins
+@import "helpers/mixins";
+
+//
+// Base
+// --------------------------------------------------
+
+//
+// Components
+// --------------------------------------------------
+
+
+//
+// Layouts
+// --------------------------------------------------
+
+//
+// Vendor
+// --------------------------------------------------
