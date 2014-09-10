@@ -31,3 +31,6 @@ node_modules/**/*
 
 # Jekyll
 _site
+
+# S3 Credentials
+.s3config

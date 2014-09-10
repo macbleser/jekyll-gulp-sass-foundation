@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "icons";
+  src: url('../fonts/icons.eot');
+  src: url('../fonts/icons.eot?#iefix') format('eot'),
+       url('../fonts/icons.woff') format('woff'),
+       url('../fonts/icons.ttf') format('truetype'),
+       url('../fonts/icons.svg#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+%icon-base-styles {
+  display: inline-block;
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+$icons: (
+  email: "\E001",
+  facebook: "\E002",
+  gplus: "\E003",
+  instagram: "\E004",
+  twitter: "\E005"
+);
+
+@mixin icon(
+  $name: false, 
+  $placement: before ){
+  $content: map-get($icons, $name);
+  
+  &:before,
+  &:after {
+    @extend %icon-base-styles;
+  }
+
+  @if $content == null {
+    @warn "`#{$name}` doesn't exist in $extend-map.";
+  }
+
+  @else if $placement == after {
+    &:after {
+      content: $content;
+    }
+  }
+
+  @else {
+    &:before {
+      content: $content;
+    }
+  }
+}
+
+@each $name, $icon in $icons {
+  .icon-#{$name}:before {
+    @extend %icon-base-styles;
+    content: $icon;
+  }
+}

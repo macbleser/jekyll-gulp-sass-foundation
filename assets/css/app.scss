@@ -12,72 +12,63 @@
 // 5.  Base
 // 6.  Components
 // 7.  Layout
-// 8.  Pages
-// 9.  Vendor
+// 8.  Vendor
 
 //
-// 1. Encoding
+// Encoding
 // --------------------------------------------------
 @charset "UTF-8";
 
 //
-// 2. Variables
+// Variables
 // --------------------------------------------------
 // Import our global variables first so we can use
 // them in Foundations's variables file
 
 // Global Config Variables
 @import "variables/config";
+@import "demo/settings";
 
 //
-// 3. Foundation
+// Foundation
 // --------------------------------------------------
 // Source: http://foundation.zurb.com/docs/
 // Notes:
-// - Foundation's component styles are set
-//   in vendor/foundation/_settings.
-// - Modify the _settings.scss file before overriding 
-//   the component styles on your own.
+// 1. Foundation's component styles are set
+//    in vendor/foundation/_settings.
+// 2. Modify the _settings.scss file before overriding 
+//    the component styles on your own.
 
 // Import all of Foundation
 @import "vendor/foundation";
 
 //
-// 4. Helpers
+// Helpers
 // --------------------------------------------------
 
 // Functions
 @import "helpers/functions";
 
+// Placeholders
+@import "helpers/placeholders";
+
 // Mixins
 @import "helpers/mixins";
 
 //
-// 5. Base
+// Base
 // --------------------------------------------------
-
-// Local Fonts
-@import "base/fonts";
-
-// Icon Font
-@import "base/icons";
-
-// Placeholders
-@import "base/placeholders";
+@import "demo/styles";
 
 //
-// 6. Components
+// Components
+// --------------------------------------------------
+
+
+//
+// Layouts
 // --------------------------------------------------
 
 //
-// 7. Layouts
+// Vendor
 // --------------------------------------------------
-
-//
-// 8. Pages
-// --------------------------------------------------
-
-//
-// 9. Vendor
-// --------------------------------------------------
-

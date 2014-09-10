@@ -6,7 +6,7 @@ description:  "Site description"
 # plugins:     ./_plugins
 # layouts:     ./_layouts
 # include:     ['.htaccess']
-exclude:     ['node_modules', 'assets/scss', 'gulpfile.js', 'package.json', 'README.md']
+exclude:     ['node_modules', 'assets/scss', 'gulpfile.js', 'package.json', 'README.md', 'Gemfile', 'Gemfile.lock']
 # keep_files:  ['.git','.svn']
 # gems:        []
 # timezone:    nil
@@ -19,7 +19,7 @@ exclude:     ['node_modules', 'assets/scss', 'gulpfile.js', 'package.json', 'REA
 
 # relative_permalinks: true
 
-# permalink:     date
+permalink: /:title
 # paginate_path: 'page:num'
 # paginate:      nil
 

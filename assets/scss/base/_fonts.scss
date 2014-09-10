@@ -1,0 +1,49 @@
+// --------------------------------------------------
+// Fonts
+// --------------------------------------------------
+
+//
+// Define Paths
+// --------------------------------------------------
+
+$fonts-directory-path: '../fonts/';
+
+//
+// Font Face Mixin
+// --------------------------------------------------
+
+@mixin font-face(
+  $font-name, 
+  $fonts-directory: $fonts-directory-path, 
+  $font-weight: normal, 
+  $font-style: normal) {
+
+  @font-face {
+    font-family: $font-name;
+      src: url('#{$fonts-directory}#{$font-name}.eot');
+      src: url('#{$fonts-directory}#{$font-name}.eot?#iefix') format('embedded-opentype'),
+           url('#{$fonts-directory}#{$font-name}.woff') format('woff'),
+           url('#{$fonts-directory}#{$font-name}.ttf') format('truetype'),
+           url('#{$fonts-directory}#{$font-name}.svg##{$font-name}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+  // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+      font-family: $font-name;
+        src: url('#{$fonts-directory}#{$font-name}.svg##{$font-name}') format('svg');
+    }
+  }
+}
+
+//
+// Include Fonts By Name
+// --------------------------------------------------
+// Note: the font name should be the same as the file name
+
+// Examples
+//
+// @include font-face('proxima-nova');
+//
+// @include font-face('futura');

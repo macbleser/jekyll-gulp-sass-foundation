@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "<%= fontName %>";
+  src: url('<%= fontPath %><%= fontName %>.eot');
+  src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
+       url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+       url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
+       url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+%icon-base-styles {
+  display: inline-block;
+  font-family: "<%= fontName %>";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+$icons: (
+  <%= glyphs.map(function(glyph){ return glyph.name + ': "' + '\\' + glyph.codepoint.toString(16).toUpperCase() + '"' }).join(',\n  ') %>
+);
+
+@mixin icon(
+  $name: false, 
+  $placement: before ){
+  $content: map-get($icons, $name);
+  
+  &:before,
+  &:after {
+    @extend %icon-base-styles;
+  }
+
+  @if $content == null {
+    @warn "`#{$name}` doesn't exist in $extend-map.";
+  }
+
+  @else if $placement == after {
+    &:after {
+      content: $content;
+    }
+  }
+
+  @else {
+    &:before {
+      content: $content;
+    }
+  }
+}
+
+@each $name, $icon in $icons {
+  .<%= className %>-#{$name}:before {
+    @extend %icon-base-styles;
+    content: $icon;
+  }
+}
