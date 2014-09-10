@@ -1,8 +1,14 @@
 {% include head.html %}
 
-<div class="page page--default">
+{% include components/top-bar.html %}
+
+<div class="page page--{{ page.layout }}">
   <div class="container">
-    {{ content }}
+    <div class="row">
+      <div class="small-12 columns">
+        {{ content }}
+      </div>
+    </div>
   </div>
 </div>
 
