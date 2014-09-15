@@ -1,0 +1,22 @@
+// --------------------------------------------------
+// StyleGuide Page
+// --------------------------------------------------
+
+.styleguide {
+
+  &__component {
+    @include vertical-spacing(margin,20);
+  }
+
+  &__title {
+    font-size: $h3-font-size;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: rem-calc(10);
+    margin: 0;
+  }
+
+  &__content {
+    @include clearfix;
+    @include vertical-spacing(padding, 15, top-only);
+  }
+}

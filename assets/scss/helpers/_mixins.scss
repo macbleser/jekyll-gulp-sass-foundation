@@ -83,3 +83,152 @@
     }
   }
 }
+
+// 
+// Vertical Spacing
+// --------------------------------------------------
+// Use this to set consistent vertical rhythm
+//
+@mixin vertical-spacing($property: padding, $value: 30, $options: false ) {
+  @if $options == top-only {
+    #{$property}-top: rem-calc($value);
+    @media #{$medium-up} {
+      #{$property}-top: rem-calc($value * 1.5);
+    }
+    @media #{$large-up} {
+      #{$property}-top: rem-calc($value * 2);
+    }
+  }
+  @else if $options == bottom-only {
+    #{$property}-bottom: rem-calc($value);
+    @media #{$medium-up} {
+      #{$property}-bottom: rem-calc($value * 1.5);
+    }
+    @media #{$large-up} {
+      #{$property}-bottom: rem-calc($value * 2);
+    }
+  }
+  @else {
+    #{$property}-top: rem-calc($value);
+    #{$property}-bottom: rem-calc($value);
+    @media #{$medium-up} {
+      #{$property}-top: rem-calc($value * 1.5);
+      #{$property}-bottom: rem-calc($value * 1.5);
+    }
+    @media #{$large-up} {
+      #{$property}-top: rem-calc($value * 2);
+      #{$property}-bottom: rem-calc($value * 2);
+    }
+  }
+}
+
+// 
+// Horizontal Spacing
+// --------------------------------------------------
+// Use this to set consistent horizontal rhythm
+//
+@mixin horizontal-spacing($value: 30, $options: false) {
+  @if $options == left-only {
+    padding-left: rem-calc($value);
+    @media #{$medium-up} {
+      padding-left: rem-calc($value * 1.5);
+    }
+    @media #{$large-up} {
+      padding-left: rem-calc($value * 2);
+    }
+  }
+  @else if $options == right-only {
+    padding-right: rem-calc($value);
+    @media #{$medium-up} {
+      padding-right: rem-calc($value * 1.5);
+    }
+    @media #{$large-up} {
+      padding-right: rem-calc($value * 2);
+    }
+  }
+  @else {
+    padding-left: rem-calc($value);
+    padding-right: rem-calc($value);
+    @media #{$medium-up} {
+      padding-left: rem-calc($value * 1.5);
+      padding-right: rem-calc($value * 1.5);
+    }
+    @media #{$large-up} {
+      padding-left: rem-calc($value * 2);
+      padding-right: rem-calc($value * 2);
+    }
+  }
+}
+
+
+// 
+// Single Transitions
+// --------------------------------------------------
+// Use this to quickly set single transitions
+//
+@mixin single-transition($property:all, $speed:150ms, $ease:ease-out) {
+  transition: $property $speed $ease;
+}
+
+// 
+// Link Color
+// --------------------------------------------------
+// Use this to quickly set the color and hover color
+// 
+@mixin link-color($link-color: $anchor-font-color,$link-color-hover: $anchor-font-color-hover, $transition:false) {
+  color: $link-color;
+  @if $transition == true {
+    @include single-transition(color);
+  }
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
+// 
+// Reset Child Margins
+// --------------------------------------------------
+// Use this to clear out the first/last child element margins
+//
+@mixin reset-child-margins {
+  // reset first and last child margins
+  > :first-child { margin-top: 0;    }
+  > :last-child  { margin-bottom: 0; }
+}
+
+// 
+// Visually Hidden
+// --------------------------------------------------
+// Hide only visually, but have it available for screenreaders: by Jon Neal.
+// www.webaim.org/techniques/css/invisiblecontent/
+//
+@mixin visually-hidden { 
+  border    : 0;
+  clip    : rect(0 0 0 0);
+  height    : 1px;
+  margin    : -1px;
+  overflow  : hidden;
+  padding   : 0;
+  position  : absolute;
+  width   : 1px;
+}
+
+
+// 
+// Vertical Alignment
+// --------------------------------------------------
+// 
+@mixin vertical-align($position:false) {
+  position: relative;
+  @if $position == top {
+    top: 0;
+  }
+  @if $position == middle or center {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @if $position == bottom {
+    top: 100%;
+    transform: translateY(-100%);
+  }
+}

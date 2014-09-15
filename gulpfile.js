@@ -72,7 +72,7 @@ var messages = {
 gulp.task('jekyll-build', function(done) {
   browserSync.notify(messages.jekyllBuild);
   // Spawn jekyll commands
-  return spawn('jekyll', ['build'], {stdio: 'inherit'})
+  return spawn('bundle', ['exec', 'jekyll', 'build'], {stdio: 'inherit'})
     .on('close', done);
 });
 
