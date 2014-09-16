@@ -1,24 +1,45 @@
 {
-  "name": "gulp-jekyll-foundation",
-  "version": "0.0.0",
-  "private": true,
-  "dependencies": {},
-  "devDependencies": {
+  "name": "jekyll-gulp-sass-foundation",
+  "version": "0.0.1",
+  "description": "A starting point for a Jekyll site that uses Zurb Foundation's Sass and modern front-end tools like gulp.js and BrowserSync that streamline your work flow.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-autoprefixer": "^0.0.10",
     "browser-sync": "^1.3.6",
-    "gulp": "^3.8.7",
-    "gulp-autoprefixer": "0.0.10",
     "gulp-consolidate": "^0.1.2",
+    "gulp": "^3.8.8",
     "gulp-htmlmin": "^0.2.0",
     "gulp-iconfont": "^0.1.2",
-    "gulp-jsbeautifier": "0.0.2",
-    "gulp-minify-css": "~0.3.8",
+    "gulp-jsbeautifier": "^0.0.2",
+    "gulp-minify-css": "^0.3.8",
     "gulp-notify": "^1.5.1",
     "gulp-plumber": "^0.6.5",
-    "gulp-rename": "~1.2.0",
-    "gulp-ruby-sass": "~0.7.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^0.7.1",
     "gulp-s3": "^0.3.0",
     "gulp-template": "^1.0.1",
     "gulp-util": "^3.0.1",
     "lodash": "^2.4.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macbleser/jekyll-gulp-sass-foundation.git"
+  },
+  "keywords": [
+    "Jekyll",
+    "Gulp",
+    "Sass",
+    "Foundation",
+    "BrowserSync"
+  ],
+  "author": "Mac Bleser",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/macbleser/jekyll-gulp-sass-foundation/issues"
+  },
+  "homepage": "https://github.com/macbleser/jekyll-gulp-sass-foundation"
 }
