@@ -5,6 +5,7 @@
 .styleguide {
 
   &__component {
+    @include clearfix;
     @include vertical-spacing(margin,20);
   }
 
@@ -17,6 +18,6 @@
 
   &__content {
     @include clearfix;
-    @include vertical-spacing(padding, 15, top-only);
+    @include vertical-spacing(margin, 15, top-only);
   }
 }

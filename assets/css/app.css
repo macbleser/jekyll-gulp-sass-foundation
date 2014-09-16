@@ -6730,8 +6730,16 @@ table tfoot tr td {
 }
 
 .styleguide__component {
+  *zoom: 1;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+}
+.styleguide__component:before, .styleguide__component:after {
+  content: " ";
+  display: table;
+}
+.styleguide__component:after {
+  clear: both;
 }
 @media only screen and (min-width: 40.063em) {
   .styleguide__component {
@@ -6753,7 +6761,7 @@ table tfoot tr td {
 }
 .styleguide__content {
   *zoom: 1;
-  padding-top: 0.9375rem;
+  margin-top: 0.9375rem;
 }
 .styleguide__content:before, .styleguide__content:after {
   content: " ";
@@ -6764,11 +6772,11 @@ table tfoot tr td {
 }
 @media only screen and (min-width: 40.063em) {
   .styleguide__content {
-    padding-top: 1.40625rem;
+    margin-top: 1.40625rem;
   }
 }
 @media only screen and (min-width: 64.063em) {
   .styleguide__content {
-    padding-top: 1.875rem;
+    margin-top: 1.875rem;
   }
 }
