@@ -12,9 +12,7 @@ var gulp          = require('gulp'),
     iconfont      = require('gulp-iconfont'),
     minifycss     = require('gulp-minify-css'),
     notify        = require('gulp-notify'),
-    plumber       = require('gulp-plumber'),
     prettify      = require('gulp-jsbeautifier'),
-    reload        = browserSync.reload,
     rename        = require('gulp-rename'),
     spawn         = require('child_process').spawn,
     template      = require('gulp-template'),
@@ -36,18 +34,6 @@ var config = {
   cssDest: 'assets/css/',
   // all js files the js directory
   allJs: 'assets/js/**/*.js'
-};
-
-// --------------------------------------------------
-// Error Handling
-// --------------------------------------------------
-
-/**
- * Beep on error and log message
- */
-var onError = function(err) {
-  gutil.beep();
-  console.log(err);
 };
 
 // --------------------------------------------------
@@ -80,7 +66,7 @@ gulp.task('jekyll-build', function(done) {
  * Rebuild Jekyll & do page reload
  */
 gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
-  reload();
+  browserSync.reload();
 });
 
 // --------------------------------------------------
@@ -111,13 +97,17 @@ gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
 gulp.task('sass', function() {
   browserSync.notify(messages.sassBuild);
   return gulp.src(config.scssSrc)
-    .pipe(plumber({
-      errorHandler: onError
-    }))
     .pipe(sass({
       style: 'expanded',
-      bundleExec: true
+      bundleExec: true,
+      // Hack to disable sourcemaps, can be removed once 
+      // next version of gulp-ruby-sass is released
+      // https://github.com/sindresorhus/gulp-ruby-sass/issues/130#issuecomment-55579060
+      'sourcemap=none': true
     }))
+    .on('error', function (err) {
+      browserSync.notify(err);
+    })
     .pipe(autoprefixer(
       'last 2 version',
       'safari 5',
@@ -129,7 +119,7 @@ gulp.task('sass', function() {
     ))
     // for live injecting
     .pipe(gulp.dest(config.docRoot + config.cssDest))
-    .pipe(reload({stream: true}))
+    .pipe(browserSync.reload({stream: true}))
     // for future jekyll builds
     .pipe(gulp.dest(config.cssDest));
 });
@@ -227,7 +217,7 @@ gulp.task('deploy', ['prettify-html', 'push-to-s3']);
 gulp.task('watch', function() {
   gulp.watch(config.allScss, ['sass']);
   gulp.watch(iconfontSettings.iconsSrc, ['iconfont']);
-  gulp.watch(['index.html', '_sections/*', '_data/*', '_includes/**/*', '_layouts/*', '_posts/*', '**/_posts/*', config.allJs], ['jekyll-rebuild']);
+  gulp.watch(['*.html', '*/*.html', '*/*/*.html', '*/*.md', '!_site/**', '!_site/*/**', config.allJs], ['jekyll-rebuild']);
 });
 
 // --------------------------------------------------
