@@ -1,6 +1,8 @@
 name:         "Site Name"
 description:  "Site description"
 
+# typekit_id: yourKitID
+
 # source:      .
 # destination: ./_site
 # plugins:     ./_plugins

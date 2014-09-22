@@ -13,6 +13,10 @@
     <link rel="apple-touch-icon-precomposed" href="/assets/img/icons/apple-touch-icon-precomposed.png">
     <link rel="stylesheet" href="/assets/css/app.css">
     <script src="/assets/js/vendor/modernizr.js"></script>
+    {% if site.typekit_id %}
+      <script src="//use.typekit.net/{{site.typekit_id}}.js"></script>
+      <script>try{Typekit.load();}catch(e){}</script>    
+    {% endif %}
   </head>
   
   <body>
